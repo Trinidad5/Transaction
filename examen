@@ -1,7 +1,6 @@
 START TRANSACTION;
 
 
-
 UPDATE estudiante SET telefono = '6129998877' WHERE id_estudiante = 2;
 
 
