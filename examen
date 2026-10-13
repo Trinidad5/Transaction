@@ -1,0 +1,26 @@
+START TRANSACTION;
+
+
+
+UPDATE estudiante SET telefono = '6129998877' WHERE id_estudiante = 2;
+
+
+
+INSERT INTO pago (id_estudiante, id_periodo, concepto, monto, metodo_pago, referencia)
+VALUES (2, 2, 'regularizacion academica', 1200.00, 'transferencia', 'reg2026-002');
+
+
+SAVEPOINT sp_regularizacion;
+
+UPDATE inscripcion SET estatus = 'regularizada' WHERE id_estudiante = 2 AND id_periodo = 2;
+
+
+
+ROLLBACK TO SAVEPOINT sp_regularizacion;
+
+
+
+
+
+
+COMMIT;
